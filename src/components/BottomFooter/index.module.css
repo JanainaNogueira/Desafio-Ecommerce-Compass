@@ -1,0 +1,19 @@
+.bottomBar{
+    width: 100%;
+    background-color: #1D1F1F;
+    padding: 16px 5%;
+}
+
+.payMethods{
+    display: flex;
+width: 30%;
+justify-content: space-between;
+}
+
+.imgContainer{
+    width: max-content;
+}
+
+.payImage{
+ width: 80%;
+}
