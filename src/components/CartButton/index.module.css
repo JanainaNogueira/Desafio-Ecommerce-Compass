@@ -1,0 +1,27 @@
+.cartButton {
+
+  justify-content: center;
+  gap: 5px;
+  display: flex;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  align-self: stretch;
+  padding: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  flex: 1 0 0;
+}
+
+.cartButtonActive {
+    justify-content: center;
+  display: flex;
+  gap: 5px;
+  border-radius: 4px;
+  border: 1px solid #62d0b6;
+  background: #62d0b6;
+  align-self: stretch;
+  padding: 12px;
+  cursor: pointer;
+  color: #ffff;
+  flex: 1 0 0;
+}

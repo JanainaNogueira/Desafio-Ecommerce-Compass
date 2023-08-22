@@ -1,0 +1,105 @@
+* {
+  font-family: Roboto;
+}
+.subscription {
+  display: flex;
+  font-size: 14px;
+  width: 100%;
+  text-align: end;
+}
+
+.paragraph {
+  color: #333;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 16px;
+}
+
+.subForm {
+  display: flex;
+  text-align: start;
+}
+
+.formContainer{
+  flex-direction: column;
+  width: 40%;
+  text-align: right;
+  
+}
+.subButton {
+  border-radius: 4px;
+  border: 1px solid #62d0b6;
+  background: #62d0b6;
+
+  padding: 10px 16px;
+
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-right: 8px;
+  cursor: pointer;
+  
+}
+.subInput {
+  padding: 8px 16px;
+
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 4px;
+  border: 1px solid #eee;
+  background: #fff;
+  color: #a5a5a5;
+  text-align: end;
+  width: 100%;
+}
+
+.subInput:focus {
+  outline: none;
+}
+
+.newsDescription {
+  text-align: end;
+  margin-left: 24px;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.newsHeader {
+  color: #333;
+  text-align: right;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px; /* 150% */
+}
+
+.newsParagraph {
+  margin-top: 8px;
+  color: #666;
+  text-align: right;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.newsButton {
+  border-radius: 50px;
+  background: rgba(214, 248, 240, 0.5);
+  display: flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  margin-left:12px;
+  
+
+
+
+  
+}
