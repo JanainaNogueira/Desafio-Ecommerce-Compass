@@ -3,7 +3,7 @@ import classes from "./index.module.css";
 const NewsLetterSubscription = () => {
   return (
     <div className={classes.subscription}>
-      <div>
+      <div className={classes.formContainer}>
         <p className={classes.paragraph}>
           Você pode cancelar a inscrição a qualquer momento
         </p>
