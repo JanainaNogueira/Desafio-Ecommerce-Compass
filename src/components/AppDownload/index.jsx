@@ -1,5 +1,5 @@
-import GooglePlayLogo from "../../_assets/img/gplay.png";
-import AppStoreLogo from "../../_assets/img/apple.png";
+import GooglePlayLogo from "../../assets/img/gplay.png";
+import AppStoreLogo from "../../assets/img/apple.png";
 import classes from "./index.module.css";
 
 const AppDownload = () => {

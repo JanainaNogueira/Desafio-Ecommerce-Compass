@@ -1,7 +1,7 @@
 import classes from "./index.module.css";
-import mastercard from "../../_assets/img/mc.png";
-import visa from "../../_assets/img/visa.png";
-import paypal from "../../_assets/img/paypal.png";
+import mastercard from "../../assets/img/mc.png";
+import visa from "../../assets/img/visa.png";
+import paypal from "../../assets/img/paypal.png";
 const BottomFooter = () => {
   return (
     <div className={classes.bottomBar}>
