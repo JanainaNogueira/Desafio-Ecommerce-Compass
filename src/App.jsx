@@ -1,6 +1,6 @@
 import './App.css'
 
-import OrderSummary from '../components/OrderSummary/index'
+import OrderSummary from './components/OrderSummary/index'
 
 function App() {
 
