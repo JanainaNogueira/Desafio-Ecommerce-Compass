@@ -32,7 +32,7 @@
   border: 1px solid #62d0b6;
   background: #62d0b6;
 
-  padding: 8px 16px;
+  padding: 10px 16px;
 
   color: #fff;
   font-size: 16px;
@@ -40,6 +40,7 @@
   font-weight: 500;
   line-height: normal;
   margin-right: 8px;
+  cursor: pointer;
   
 }
 .subInput {
@@ -96,4 +97,9 @@
   align-items: center;
   border: none;
   margin-left:12px;
+  
+
+
+
+  
 }

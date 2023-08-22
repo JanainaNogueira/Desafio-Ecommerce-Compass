@@ -5,7 +5,7 @@ import classes from "./index.module.css";
 const AppDownload = () => {
   return (
     <div className={classes.download}>
-      <h2>Baixe nosso App</h2>
+      <h2 className={classes.downloadTitle}>Baixe nosso App</h2>
       <div className={classes.apps}>
         <img
           src={GooglePlayLogo}
