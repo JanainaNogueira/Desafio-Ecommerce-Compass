@@ -1,11 +1,11 @@
 import './App.css'
-import TopFooter from './components/TopFooter'
+import Footer from './components/Footer'
 
 function App() {
 
   return (
     <>
-      <TopFooter></TopFooter>
+      <Footer></Footer>
     </>
   )
 }
