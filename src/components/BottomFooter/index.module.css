@@ -1,0 +1,34 @@
+.bottomBar {
+  width: 100%;
+  background-color: #1d1f1f;
+  padding: 16px 12%;
+  flex-wrap: wrap;
+  display: flex;
+  color: #ffff;
+  text-align: end;
+  align-items: center;
+}
+
+.payMethods {
+  display: flex;
+  width: 30%;
+  justify-content: start;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-left: 16px;
+}
+
+.payImage {
+  display: flex;
+  max-width: 80px;
+}
+
+.textContainer {
+  display: flex;
+  flex-grow: 1;
+  width: 65%;
+  justify-content: end;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+}
