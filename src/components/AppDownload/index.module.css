@@ -1,0 +1,18 @@
+.download {
+    display: flex;
+    padding: 1px 0px 2px 0px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+    width: 35%;
+    overflow: hidden;
+  }
+  
+  .apps {
+    display: flex;
+  }
+  
+  .appIcon {
+    height: 42px;
+    margin-left: 8px;
+  }
