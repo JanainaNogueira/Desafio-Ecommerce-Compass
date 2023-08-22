@@ -1,0 +1,10 @@
+.topfooter {
+  display: flex;
+  padding: 24px 200px;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+
