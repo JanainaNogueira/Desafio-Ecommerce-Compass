@@ -1,3 +1,4 @@
+import ItemCart from './components/ItemCart/index'
 import './App.css'
 import Header from './components/header/header'
 import Footer from './components/Footer'
@@ -8,8 +9,9 @@ function App() {
 
   return (
     <>
-      <OrderSummary/>
       <Header></Header>
+      <OrderSummary/>
+      <ItemCart/>
       <Footer></Footer>
     </>
   )
