@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,600;8..144,900&display=swap');
+
+.flagText {
+    display: flex;
+    width: 4.1875rem;
+    height: 1.875rem;
+    padding: 0.3125rem 0rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    border-radius: 0.125rem;
+}
+
+.new {
+    background: #62D0B6;
+}
+
+.new svg path {
+    fill: #62D0B6;
+}
+
+.discount {
+    background: #F55157;
+}
+
+.discount svg path {
+    fill: #F55157;
+}
+
+.flagText p {
+    color: #FFF;
+    text-align: right;
+    font-family: Roboto Flex;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.flagText svg {
+    width: 0.75rem;
+    height: 0.5625rem;
+    position: absolute;
+    right: -0.5rem;
+    top: 0.5625rem;
+    
+}
+
+.card {
+    border:#000;
+}
