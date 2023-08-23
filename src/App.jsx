@@ -1,11 +1,14 @@
 import './App.css'
-import FlagDiscountNew from './components/FlagDiscountNew/index'
+import Header from './components/header/header'
+import Footer from './components/Footer'
+import FeaturesBar from './components/FeaturesBar'
+
+import OrderSummary from './components/OrderSummary/index'
 
 function App() {
 
   return (
     <>
-      <FlagDiscountNew/>
     </>
   )
 }
