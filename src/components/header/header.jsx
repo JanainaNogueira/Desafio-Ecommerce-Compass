@@ -1,5 +1,5 @@
 
-import imgCart from '../../assets/img/cart 1.png'
+import imgCart from '../../assets/img/cart 1.svg'
 import imgLogo from '../../assets/img/logo.svg'
 import imgLupa from '../../assets/img/Search.svg'
 import imgUser from '../../assets/img/user 1.png'
