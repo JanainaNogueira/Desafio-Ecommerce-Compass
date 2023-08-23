@@ -1,0 +1,15 @@
+.featureCard{
+    display: flex;
+    width: 30%;
+    justify-content: end;
+    gap: 8px;
+}
+.featureText{
+    text-align: end;
+}
+.featureImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 12px;
+}

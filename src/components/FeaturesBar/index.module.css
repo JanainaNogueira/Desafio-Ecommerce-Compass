@@ -1,0 +1,11 @@
+.featureBar{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 4% 8%;
+    align-items: center;
+    gap: 1px;
+    border-radius: 2px;
+    border: 1px solid #EEE;
+    background: #FFF;
+}
