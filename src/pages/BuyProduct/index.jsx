@@ -2,24 +2,27 @@ import { useContext, useEffect } from "react";
 import ProductData from "../../components/ProductData";
 import classes from "./index.module.css";
 import { ProductsContext } from "../../context/products-context";
-
+import Header from "../../components/header/header";
+import Footer from "../../components/Footer/";
+import { useParams } from "react-router-dom";
 const BuyProduct = () => {
-  const { selectedProduct,searchProduct } = useContext(ProductsContext);
+  const { selectedProduct, searchProduct } = useContext(ProductsContext);
 
-  
-  const id = 15
-  useEffect(()=>{
-    searchProduct(id)
-  },[])
+  const params = useParams();
 
+  const id = params.productId;
+  useEffect(() => {
+    searchProduct(id);
+  }, [searchProduct, id]);
 
-
-let keys = Object.keys(selectedProduct).length
+  let keys = Object.keys(selectedProduct).length;
   return (
     <>
+      <Header />
       <div className={classes.productContainer}>
         {keys > 0 && <ProductData product={selectedProduct}></ProductData>}
       </div>
+      <Footer />
     </>
   );
 };
