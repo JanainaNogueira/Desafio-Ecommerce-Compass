@@ -48,7 +48,7 @@ header{
     display: flex;
     width: 55%;
     height: 50%;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #cccccc;
     justify-content:space-between;
     align-items: center;
 }

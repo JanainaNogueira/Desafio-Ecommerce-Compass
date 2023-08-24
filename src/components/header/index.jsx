@@ -4,7 +4,7 @@ import imgLogo from '../../assets/img/logo.svg'
 import imgLupa from '../../assets/img/Search.svg'
 import imgUser from '../../assets/img/user 1.png'
 
-import Styles from './header.module.css'
+import Styles from './index.module.css'
 
 function Header(){
     return(
