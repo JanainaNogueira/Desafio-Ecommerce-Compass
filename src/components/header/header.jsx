@@ -1,8 +1,3 @@
-import imgCart from "../../assets/img/cart 1.png";
-import imgLogo from "../../assets/img/logo.svg";
-import imgLupa from "../../assets/img/Search.svg";
-import imgUser from "../../assets/img/user 1.png";
-
 import Styles from "./header.module.css";
 
 function Header() {
@@ -10,6 +5,7 @@ function Header() {
     <header>
       <div className={Styles.header__cart}>
         <svg
+          className={Styles.header__cartIcon}
           xmlns="http://www.w3.org/2000/svg"
           width="22"
           height="21"
@@ -34,6 +30,7 @@ function Header() {
           <p> Welliton</p>
         </div>
         <svg
+          className={Styles.header__profileIcon}
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="25"
@@ -57,7 +54,6 @@ function Header() {
           height="16"
           viewBox="0 0 16 16"
           fill="none"
-        
           className={Styles.header__searchIcon}
         >
           <g clipPath="url(#clip0_271_1456)">

@@ -81,3 +81,10 @@ header {
   width: 2.3rem;
   height: 2.3rem;
 }
+.header__cartIcon{
+    margin-right: 2.5rem;
+}
+
+.header__profileIcon{
+    margin-left: 2rem;
+}
