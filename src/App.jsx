@@ -3,6 +3,7 @@ import "./App.css";
 import ProductsContextProvider from "./context/products-context";
 import BuyProduct from "./pages/BuyProduct";
 import CartScreen from "./pages/CartScreen";
+import CartContextProvider from "./context/cart-context";
 
 const router = createBrowserRouter([
   { path: "/products/:productId", element: <BuyProduct></BuyProduct> },
@@ -11,9 +12,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <ProductsContextProvider>
-      <RouterProvider router={router} />
-    </ProductsContextProvider>
+    <CartContextProvider>  
+      <ProductsContextProvider>
+        <RouterProvider router={router} />
+      </ProductsContextProvider>
+    </CartContextProvider>
   );
 }
 
