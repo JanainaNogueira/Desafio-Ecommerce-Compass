@@ -5,10 +5,13 @@ export const ProductsContext = createContext({
   products: [],
   fetchProducts: () => {},
   searchProduct: () => {},
+  selectedProduct: {"id":null,"title":"","price":0.00,"description":"Product not found!","category":"","image":"","rating":{"rate":0,"count":0}}
 });
 
 const ProductsContextProvider = ({ children }) => {
   const [availableProducts, setAvailableProducts] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState({})
+
 
   const fetchProducts = async () => {
     const response = await fetch("https://fakestoreapi.com/products");
@@ -21,14 +24,17 @@ const ProductsContextProvider = ({ children }) => {
     fetchProducts();
   }, []);
 
-  const searchProduct = (products, id) => {
-    return products.find((prd) => prd.id === id);
-    
+  const searchProduct = async (id) => {
+
+    const response = await fetch( `https://fakestoreapi.com/products/${id}`);
+    const data = await response.json();
+
+    return setSelectedProduct(data)
   };
 
   return (
     <ProductsContext.Provider
-      value={{ availableProducts, fetchProducts, searchProduct }}
+      value={{ availableProducts, fetchProducts, searchProduct, selectedProduct }}
     >
       {children}
     </ProductsContext.Provider>

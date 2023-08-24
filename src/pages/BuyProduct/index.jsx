@@ -1,16 +1,24 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import ProductData from "../../components/ProductData";
 import classes from "./index.module.css";
 import { ProductsContext } from "../../context/products-context";
+
 const BuyProduct = () => {
-  const { availableProducts } = useContext(ProductsContext);
+  const { selectedProduct,searchProduct } = useContext(ProductsContext);
 
-  const foundProduct = availableProducts.find((prd) => prd.id === 12);
+  
+  const id = 15
+  useEffect(()=>{
+    searchProduct(id)
+  },[])
 
+
+
+let keys = Object.keys(selectedProduct).length
   return (
     <>
       <div className={classes.productContainer}>
-        <ProductData product={foundProduct}></ProductData>
+        {keys > 0 && <ProductData product={selectedProduct}></ProductData>}
       </div>
     </>
   );
