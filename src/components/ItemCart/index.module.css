@@ -37,10 +37,10 @@
     display: flex;
     width: 10.875rem;
     height: 3.125rem;
-    padding: var(--spacing-xl, 1rem);
+    padding: 1rem;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-2-xl, 1.5rem);
+    gap: 30%;
     border-radius: 0.25rem;
     border: 1px solid #EEE;
     background: #FFF;
