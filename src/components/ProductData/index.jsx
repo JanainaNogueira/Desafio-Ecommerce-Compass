@@ -8,6 +8,7 @@ import QuantitySetter from "../QuantitySetter";
 import { useState } from "react";
 
 const ProductData = ({ product }) => {
+
   const { title, price, description, rating } = product;
   const starsArray = [0, 1, 2, 3, 4];
 
@@ -24,7 +25,7 @@ const ProductData = ({ product }) => {
           <h2>{title}</h2>
           <div className={classes.ratingContainer}>
             <p className={classes.ratingCount}>({rating.count}) avaliações</p>
-            <div>
+            <div className={classes.starsArray}>
               {starsArray.map((index) => (
                 <Star key={index} isActive={index <= rating.rate}></Star>
               ))}
@@ -47,7 +48,7 @@ const ProductData = ({ product }) => {
       </div>
       <ProductImage image={product.image}></ProductImage>
     </div>
-  );
+  )
 };
 
 export default ProductData;
