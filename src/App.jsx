@@ -1,11 +1,17 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import CartScreen from './pages/CartScreen/index'
+import ProductsContextProvider from "./context/products-context";
+import BuyProduct from "./pages/BuyProduct";
+
+const router = createBrowserRouter([
+  { path: "/products/:productId", element: <BuyProduct></BuyProduct> },
+]);
 
 function App() {
   return (
-    <>
-    <CartScreen/>
-    </>
+    <ProductsContextProvider>
+      <RouterProvider router={router} />
+    </ProductsContextProvider>
   );
 }
 
