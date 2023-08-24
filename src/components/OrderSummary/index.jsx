@@ -7,7 +7,7 @@ function OrderSummary () {
                 Resumo do pedido
             </p>
             <div className={classes.totalOrder}>
-                <p>R$ 6.400,00</p>
+                <p>{(6400).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                 <p>Total</p>
             </div>
             <div className={classes.couponDiv}>
@@ -25,7 +25,7 @@ function OrderSummary () {
                 </div>
             </div>
             <p className={classes.line}></p>
-            <button className={classes.buyButton}>Comprar</button>
+            <button className={classes.buyButton}><p>Comprar</p></button>
 
         </div>
     );
