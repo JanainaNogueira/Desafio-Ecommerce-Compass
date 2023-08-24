@@ -15,7 +15,8 @@ const ProductData = ({ product }) => {
   const [sellPrice, setSellPrice] = useState(price);
 
   const onQuantityChange = (quantity) => {
-    setSellPrice(price * quantity);
+    const newPrice = (price*quantity).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    setSellPrice(newPrice);
   };
 
   return (
@@ -35,7 +36,7 @@ const ProductData = ({ product }) => {
         </div>
         <div className={classes.orderDataContainer}>
           <div className={classes.priceAndQuantity}>
-            <h3 className={classes.orderPrice}>R$ {sellPrice}</h3>
+            <h3 className={classes.orderPrice}>{sellPrice}</h3>
             <QuantitySetter
               onQuantityChange={onQuantityChange}
             ></QuantitySetter>
