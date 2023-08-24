@@ -1,16 +1,16 @@
-import './App.css'
-import Header from './components/header/header'
-import Footer from './components/Footer'
-import FeaturesBar from './components/FeaturesBar'
-
-import OrderSummary from './components/OrderSummary/index'
+import "./App.css";
+import Header from "./components/header/header";
+import Footer from "./components/Footer";
+import BuyProduct from "./pages/BuyProduct";
 
 function App() {
-
   return (
     <>
+      <Header />
+        <BuyProduct></BuyProduct>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
