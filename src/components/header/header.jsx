@@ -1,17 +1,23 @@
 import { useContext } from "react";
 import Styles from "./header.module.css";
 import { CartContext } from "../../context/cart-context";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate()
   const cartCtx = useContext(CartContext);
 
   const currentAmount = cartCtx.items.reduce((acc, item) => {
     return acc + item.amount;
   }, 0);
+
+  const redirectToCart = ()=>{
+    navigate('/cart')
+  }
   return (
     <header>
       <div className={Styles.header__cart}>
-        <div className={Styles.cartIconContainer}>
+        <div onClick={redirectToCart} className={Styles.cartIconContainer}>
           <p>{currentAmount}</p>
           <svg
             className={Styles.header__cartIcon}

@@ -29,7 +29,7 @@ const ProductData = ({ product }) => {
       id: id,
       title: title,
       price: price,
-      amount: amount,
+      amount: amount
     };
 
     cartCtx.addToCart(cartItem);
@@ -52,7 +52,7 @@ const ProductData = ({ product }) => {
         </div>
         <div className={classes.orderDataContainer}>
           <div className={classes.priceAndQuantity}>
-            <h3 className={classes.orderPrice}>R$ {sellPrice}</h3>
+            <h3 className={classes.orderPrice}>{sellPrice}</h3>
             <QuantitySetter
               onQuantityChange={onQuantityChange}
             ></QuantitySetter>
