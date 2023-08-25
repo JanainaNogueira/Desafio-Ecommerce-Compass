@@ -1,0 +1,22 @@
+.sectionPromotion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+}
+.sectionPromotion__title{
+    display: flex;
+    justify-content: end;
+    width: 80%;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.sectionPromotion__cards{
+    display: flex;
+    height: 95%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+  }
