@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import Styles from "./header.module.css";
+import { CartContext } from "../../context/cart-context";
 
 function Header() {
+
+
   return (
     <header>
       <div className={Styles.header__cart}>
@@ -25,6 +29,8 @@ function Header() {
             fill="#666666"
           />
         </svg>
+     
+
         <div className={Styles.header__message}>
           <p>Bem-vindo</p>
           <p> Welliton</p>

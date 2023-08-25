@@ -4,7 +4,7 @@ import { createContext, useState, useEffect } from "react";
 export const CartContext = createContext({
  items: [],
  totalPrice: 0,
- itemsQuantity: 0,
+ cartQuantity: 0,
  addToCart: ()=>{},
  incrementQuantity: ()=>{},
  decrementQuantity: ()=>{},
@@ -12,25 +12,29 @@ export const CartContext = createContext({
 });
 
 export const CartContextProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
-  const [cartPrice, setCartPrice] = useState([]);
-  const [cartQuantity, setCartQuantity] = useState([]);
-  
+  const [cartItems, setCartItems] = useState();
+  const [cartPrice, setCartPrice] = useState(0);
+  const [cartQuantity, setCartQuantity] = useState(0);  
   const addToCart = (item)=>{
-    const cartItem = cartItems.find((cartItems)=>(cartItems.id === item.id))
-    setCartPrice(cartPrice + item.price)
-    setCartQuantity(cartQuantity + 1)
-    if(cartItem){
-        const updatedCart = cartItems.map((cartItem) => // if the item is already in the cart, increase the quantity of the item
-        cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
-            : cartItem // otherwise, return the cart item
-        )
-
-        return setCartItems(updatedCart)
+    
+    if(cartItems != undefined){ 
+     const cartItem = cartItems.find((cartItems)=>(cartItems.id === item.id))
+     setCartPrice(Number(cartPrice) + Number(item.price))
+     setCartQuantity(Number(cartQuantity) + 1)
+     if(cartItem){
+       const updatedCart = cartItems.map((cartItem) => // if the item is already in the cart, increase the quantity of the item
+       cartItem.id === item.id
+       ? { ...cartItem, quantity: cartItem.quantity + 1, inCarPrice: cartItem.price + item.price }
+       : cartItem // otherwise, return the cart item
+       )
+       
+       
+      }
     }else{
-        return setCartItems((prevItems)=>([prevItems,{...item, quantity: 1}]))
+        setCartItems([{...item, quantity: 1}])
+
     }
+
   }
 
   const incrementQuantity = (itemId)=>{

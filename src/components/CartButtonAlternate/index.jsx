@@ -1,8 +1,19 @@
+import { useContext, useEffect } from "react";
 import classes from "./index.module.css";
+import { CartContext } from "../../context/cart-context";
+import { ProductsContext } from "../../context/products-context";
+const CartButton = ({quantity}) => {
 
-const CartButton = () => {
-  const handleCartClick = () => {};
 
+  const {cartQuantity,addToCart} = useContext(CartContext);
+  const {selectedProduct} = useContext(ProductsContext)
+
+  const handleCartClick = () => {
+    addToCart(selectedProduct)
+
+  };
+ 
+  
   return (
     <button onClick={handleCartClick} className={classes.cartButton}>
       <p>Carrinho</p>
