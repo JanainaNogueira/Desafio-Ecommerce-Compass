@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect } from "react";
 import ProductData from "../../components/ProductData";
 import classes from "./index.module.css";
@@ -13,7 +14,7 @@ const BuyProduct = () => {
   const id = params.productId;
   useEffect(() => {
     searchProduct(id);
-  }, [searchProduct, id]);
+  }, [id]);
 
   let keys = Object.keys(selectedProduct).length;
   return (

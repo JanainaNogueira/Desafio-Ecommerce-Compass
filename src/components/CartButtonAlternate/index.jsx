@@ -1,19 +1,11 @@
-import { useContext, useEffect } from "react";
+/* eslint-disable react/prop-types */
 import classes from "./index.module.css";
-import { CartContext } from "../../context/cart-context";
-import { ProductsContext } from "../../context/products-context";
-const CartButton = ({quantity}) => {
-
-
-  const {cartQuantity,addToCart} = useContext(CartContext);
-  const {selectedProduct} = useContext(ProductsContext)
-
+const CartButton = ({ quantity, addToCart }) => {
   const handleCartClick = () => {
-    addToCart(selectedProduct)
-
+    console.log(quantity);
+    addToCart(quantity);
   };
- 
-  
+
   return (
     <button onClick={handleCartClick} className={classes.cartButton}>
       <p>Carrinho</p>

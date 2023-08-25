@@ -1,81 +1,74 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { createContext, useState, useEffect } from "react";
+import { createContext, useReducer } from "react";
 
 export const CartContext = createContext({
- items: [],
- totalPrice: 0,
- cartQuantity: 0,
- addToCart: ()=>{},
- incrementQuantity: ()=>{},
- decrementQuantity: ()=>{},
- removeFromCart: ()=>{}
+  items: [],
+  totalPrice: 0,
+  addToCart: (item) => {},
+  removeFromCart: (itemId) => {},
 });
 
-export const CartContextProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState();
-  const [cartPrice, setCartPrice] = useState(0);
-  const [cartQuantity, setCartQuantity] = useState(0);  
-  const addToCart = (item)=>{
-    
-    if(cartItems != undefined){ 
-     const cartItem = cartItems.find((cartItems)=>(cartItems.id === item.id))
-     setCartPrice(Number(cartPrice) + Number(item.price))
-     setCartQuantity(Number(cartQuantity) + 1)
-     if(cartItem){
-       const updatedCart = cartItems.map((cartItem) => // if the item is already in the cart, increase the quantity of the item
-       cartItem.id === item.id
-       ? { ...cartItem, quantity: cartItem.quantity + 1, inCarPrice: cartItem.price + item.price }
-       : cartItem // otherwise, return the cart item
-       )
-       
-       
-      }
-    }else{
-        setCartItems([{...item, quantity: 1}])
+const defaultCartState = {
+  items: [],
+  totalPrice: 0,
+};
 
+const cartReducer = (state, action) => {
+  if (action.type === "ADD") {
+    const updatedPrice =
+      state.totalPrice + action.item.price * action.item.amount;
+    const itemsArray = state.items;
+    let updatedItems = [];
+    let updatedItem;
+
+    const foundItem = state.items.find((item) => item.id === action.item.id);
+
+    if (foundItem) {
+      const index = state.items.indexOf(foundItem);
+
+      updatedItem = {
+        ...foundItem,
+        amount: foundItem.amount + action.item.amount,
+      };
+
+      updatedItems = [...state.items];
+      updatedItems[index] = updatedItem;
+    } else {
+      updatedItems = itemsArray.concat(action.item);
     }
 
+    return {
+      items: updatedItems,
+      totalPrice: updatedPrice,
+    };
   }
 
-  const incrementQuantity = (itemId)=>{
-    const cartItem = cartItems.find((cartItems)=>(cartItems.id === itemId))
-    const updatedCart = cartItems.map((cartItem) => // if the item is already in the cart, increase the quantity of the item
-        cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
-            : cartItem // otherwise, return the cart item
-        )
-    setCartPrice(cartPrice + cartItem.price)
-    setCartQuantity(cartQuantity + 1)
-    setCartItems(updatedCart)
-  }
+  return defaultCartState;
+};
 
-  const decrementQuantity = (itemId)=>{
-    const cartItem = cartItems.find((cartItems)=>(cartItems.id === itemId))
-    const updatedCart = cartItems.map((cartItem) => // if the item is already in the cart, increase the quantity of the item
-        cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity - 1 }
-            : cartItem // otherwise, return the cart item
-        )
-    setCartPrice(cartPrice - cartItem.price)
-    setCartQuantity(cartQuantity - 1)
-    setCartItems(updatedCart)
-  }
+export const CartContextProvider = ({ children }) => {
+  const [cartState, dispatchActions] = useReducer(
+    cartReducer,
+    defaultCartState
+  );
 
-  const removeFromCart = (itemId)=>{
-    setCartPrice(cartPrice + item.price)
-    setCartQuantity(cartQuantity + 1)
+  const addToCart = (item) => {
+    dispatchActions({ type: "ADD", item: item });
+  };
 
-    const removingItem = cartItems.find((item)=>(item.id === itemId)) 
-    const updatedCart = cartItems.filter((item)=>(item.id != itemId))
+  const removeFromCart = (itemId) => {};
 
-    setCartPrice(cartPrice - removingItem.price)
-    setCartQuantity(cartQuantity - removingItem.quantity)
+  const cartContext = {
+    items: cartState.items,
+    totalPrice: cartState.totalPrice,
+    addToCart: addToCart,
+    removeFromCart: removeFromCart,
+  };
 
-    return setCartItems(updatedCart)
-  }
-
-  return (<CartContext.Provider value={{cartItems,cartPrice,cartQuantity,addToCart,incrementQuantity,decrementQuantity,removeFromCart}}>{children}</CartContext.Provider>)
-
+  return (
+    <CartContext.Provider value={cartContext}>{children}</CartContext.Provider>
+  );
 };
 
 export default CartContextProvider;

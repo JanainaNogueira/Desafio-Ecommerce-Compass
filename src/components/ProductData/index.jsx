@@ -5,17 +5,32 @@ import Star from "../Star";
 import classes from "./index.module.css";
 import ProductImage from "../ProductImage";
 import QuantitySetter from "../QuantitySetter";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../context/cart-context";
 
 const ProductData = ({ product }) => {
-
-  const { title, price, description, rating } = product;
+  const { id, title, price, description, rating } = product;
   const starsArray = [0, 1, 2, 3, 4];
 
+  const cartCtx = useContext(CartContext);
+
   const [sellPrice, setSellPrice] = useState(price);
+  const [productQuantity, setProductQuantity] = useState(1);
 
   const onQuantityChange = (quantity) => {
     setSellPrice(price * quantity);
+    setProductQuantity(quantity);
+  };
+
+  const addToCartHandler = (amount) => {
+    const cartItem = {
+      id: id,
+      title: title,
+      price: price,
+      amount: amount,
+    };
+
+    cartCtx.addToCart(cartItem);
   };
 
   return (
@@ -41,14 +56,17 @@ const ProductData = ({ product }) => {
             ></QuantitySetter>
           </div>
           <div className={classes.orderActions}>
-            <CartButton></CartButton>
+            <CartButton
+              addToCart={addToCartHandler}
+              quantity={productQuantity}
+            ></CartButton>
             <BuyButton></BuyButton>
           </div>
         </div>
       </div>
       <ProductImage image={product.image}></ProductImage>
     </div>
-  )
+  );
 };
 
 export default ProductData;
