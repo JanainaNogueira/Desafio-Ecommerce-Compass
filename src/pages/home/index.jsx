@@ -1,7 +1,8 @@
 import Header from '../../components/header'
 import Banner from '../../components/Banner'
-import SectionProduct from '../../components/SectionProduct'
 import FeaturesBar from '../../components/FeaturesBar'
+import SectionPromotion from '../../components/sectionPromotion'
+import SectionProduct from '../../components/SectionProduct'
 import BannerEnd from '../../components/BannerEnd'
 import Footer from '../../components/Footer'
 function Home(){
@@ -10,6 +11,7 @@ function Home(){
         <Header/>
         <Banner/>
         <FeaturesBar/>
+        <SectionPromotion/>
         <SectionProduct/>
         <BannerEnd/>
         <Footer/>

@@ -4,7 +4,6 @@ import AddCartButton from '../CartButton'
 import FavoriteButton from '../FavoriteButton'
 const CardProduct = ()=>{
     return(
-        <section className={Styles.teste}>
         <article className={Styles.card}>
             <div className={Styles.cardDescription}>
                 <div className={Styles.description}>
@@ -40,7 +39,6 @@ const CardProduct = ()=>{
             </div>
             <img className={Styles.imgCard} src={imgCard}/>
         </article>
-    </section>
     )
 }
 
