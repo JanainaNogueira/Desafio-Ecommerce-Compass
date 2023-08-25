@@ -65,9 +65,6 @@ export const CartContextProvider = ({ children }) => {
     defaultCartState
   );
 
-
-  
-
   const addToCart = (item) => {
     dispatchActions({ type: "ADD", item: item });
   };
