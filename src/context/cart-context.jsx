@@ -16,8 +16,7 @@ const defaultCartState = {
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
-    const updatedPrice =
-      state.totalPrice + action.item.price * action.item.amount;
+    const updatedPrice = state.totalPrice + action.item.price * action.item.amount;
     const itemsArray = state.items;
     let updatedItems = [];
     let updatedItem;
@@ -44,6 +43,19 @@ const cartReducer = (state, action) => {
     };
   }
 
+  if(action.type === "REMOVE"){
+    const updatedPrice = state.totalPrice - action.item.price * action.item.amount;
+    const itemsArray = state.items;
+    const updatedItems = itemsArray.filter((item)=> item.id !== action.id)
+
+    return {
+      items: updatedItems,
+      totalPrice: updatedPrice
+    }
+
+
+  }
+
   return defaultCartState;
 };
 
@@ -53,11 +65,16 @@ export const CartContextProvider = ({ children }) => {
     defaultCartState
   );
 
+
+  
+
   const addToCart = (item) => {
     dispatchActions({ type: "ADD", item: item });
   };
 
-  const removeFromCart = (itemId) => {};
+  const removeFromCart = (itemId) => {
+    dispatchActions({ type: "REMOVE", id: itemId });
+  };
 
   const cartContext = {
     items: cartState.items,
