@@ -5,19 +5,28 @@ export const ProductsContext = createContext({
   products: [],
   fetchProducts: () => {},
   searchProduct: () => {},
-  selectedProduct: {"id":null,"title":"","price":0.00,"description":"Product not found!","category":"","image":"","rating":{"rate":0,"count":0}}
+  selectedProduct: {
+    id: null,
+    title: "",
+    price: 0.0,
+    description: "Product not found!",
+    category: "",
+    image: "",
+    rating: { rate: 0, count: 0 },
+  },
 });
 
 const ProductsContextProvider = ({ children }) => {
   const [availableProducts, setAvailableProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState({})
-
+  const [selectedProduct, setSelectedProduct] = useState({});
 
   const fetchProducts = async () => {
     const response = await fetch("https://fakestoreapi.com/products");
     const data = await response.json();
 
-    return setAvailableProducts(data);
+    setAvailableProducts(data);
+
+    return data;
   };
 
   useEffect(() => {
@@ -25,16 +34,22 @@ const ProductsContextProvider = ({ children }) => {
   }, []);
 
   const searchProduct = async (id) => {
-
-    const response = await fetch( `https://fakestoreapi.com/products/${id}`);
+    const response = await fetch(`https://fakestoreapi.com/products/${id}`);
     const data = await response.json();
 
-    return setSelectedProduct(data)
+    setSelectedProduct(data);
+
+    return data;
   };
 
   return (
     <ProductsContext.Provider
-      value={{ availableProducts, fetchProducts, searchProduct, selectedProduct }}
+      value={{
+        availableProducts,
+        fetchProducts,
+        searchProduct,
+        selectedProduct,
+      }}
     >
       {children}
     </ProductsContext.Provider>
