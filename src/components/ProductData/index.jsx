@@ -18,7 +18,9 @@ const ProductData = ({ product }) => {
   const [productQuantity, setProductQuantity] = useState(1);
 
   const onQuantityChange = (quantity) => {
-    setSellPrice(price * quantity);
+    const newPrice = (price*quantity).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+
+    setSellPrice(newPrice);
     setProductQuantity(quantity);
   };
 
