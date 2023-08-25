@@ -9,14 +9,25 @@ export const CartContext = createContext({
   removeFromCart: (itemId) => {},
 });
 
+let initialItems = [];
+let initialPrice = 0;
+
+const localItems = JSON.parse(localStorage.getItem("cartItems"));
+const localPrice = localStorage.getItem("totalPrice");
+if (localItems != null) {
+  initialItems = localItems;
+  initialPrice = Number(localPrice);
+}
+
 const defaultCartState = {
-  items: [],
-  totalPrice: 0,
+  items: initialItems,
+  totalPrice: initialPrice,
 };
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
-    const updatedPrice = state.totalPrice + action.item.price * action.item.amount;
+    const updatedPrice =
+      state.totalPrice + action.item.price * action.item.amount;
     const itemsArray = state.items;
     let updatedItems = [];
     let updatedItem;
@@ -43,17 +54,16 @@ const cartReducer = (state, action) => {
     };
   }
 
-  if(action.type === "REMOVE"){
-    const updatedPrice = state.totalPrice - action.item.price * action.item.amount;
+  if (action.type === "REMOVE") {
+    const updatedPrice =
+      state.totalPrice - action.item.price * action.item.amount;
     const itemsArray = state.items;
-    const updatedItems = itemsArray.filter((item)=> item.id !== action.id)
+    const updatedItems = itemsArray.filter((item) => item.id !== action.id);
 
     return {
       items: updatedItems,
-      totalPrice: updatedPrice
-    }
-
-
+      totalPrice: updatedPrice,
+    };
   }
 
   return defaultCartState;
@@ -79,6 +89,9 @@ export const CartContextProvider = ({ children }) => {
     addToCart: addToCart,
     removeFromCart: removeFromCart,
   };
+
+  localStorage.setItem("cartItems", JSON.stringify(cartContext.items));
+  localStorage.setItem("totalPrice", cartContext.totalPrice);
 
   return (
     <CartContext.Provider value={cartContext}>{children}</CartContext.Provider>
