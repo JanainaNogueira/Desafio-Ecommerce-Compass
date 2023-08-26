@@ -1,6 +1,6 @@
 import ProductSale from '../ProductSale'
 import Styles from './index.module.css'
-function sectionProduct(){
+function SectionProduct(){
     return(
         <section className={Styles.sectionPromotion}>
             <div className={Styles.sectionPromotion__title}>
@@ -14,4 +14,4 @@ function sectionProduct(){
     )
 }
 
-export default sectionProduct
+export default SectionProduct

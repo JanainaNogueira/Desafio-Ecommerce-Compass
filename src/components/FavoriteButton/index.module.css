@@ -1,4 +1,6 @@
 .likedButton {
+  display: flex;
+  align-items: center;
   border-radius: 4px;
   border: 1px solid #62d0b6;
   background: #62d0b6;
@@ -7,6 +9,8 @@
   cursor: pointer;
 }
 .unlikedButton {
+  display: flex;
+  align-items: center;
   border-radius: 4px;
   border: 1px solid #EEE;
   background-color: #ffffff;

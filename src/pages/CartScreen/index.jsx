@@ -1,5 +1,5 @@
 import classes from "./index.module.css";
-import Header from "../../components/header/header";
+import Header from "../../components/header/";
 import Footer from "../../components/Footer/index";
 import OrderSummary from "../../components/OrderSummary/index";
 import ItemCart from "../../components/ItemCart/index";

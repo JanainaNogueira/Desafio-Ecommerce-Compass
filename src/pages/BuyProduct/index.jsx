@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import ProductData from "../../components/ProductData";
 import classes from "./index.module.css";
 import { ProductsContext } from "../../context/products-context";
-import Header from "../../components/header/header";
+import Header from "../../components/header";
 import Footer from "../../components/Footer/";
 import { useParams } from "react-router-dom";
 const BuyProduct = () => {
