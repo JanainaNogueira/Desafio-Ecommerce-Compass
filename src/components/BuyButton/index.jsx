@@ -1,9 +1,19 @@
+/* eslint-disable react/prop-types */
 import classes from "./index.module.css";
+import { useNavigate } from "react-router-dom";
 
-const BuyButton = () => {
+
+const BuyButton = ({addToCart, quantity}) => {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    console.log(quantity);
+    addToCart(quantity);
+    navigate("/cart")
+  };
 
   return (
-    <button className={classes.buyButton}>
+    <button onClick={handleButtonClick} className={classes.buyButton}>
       <p>Comprar</p>
     </button>
   );
@@ -11,4 +21,4 @@ const BuyButton = () => {
 
 export default BuyButton;
 
-//fill={isOnCart ? 'white' : 'black'}
+

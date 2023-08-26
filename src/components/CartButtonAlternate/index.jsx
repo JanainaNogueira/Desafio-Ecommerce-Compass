@@ -1,7 +1,10 @@
+/* eslint-disable react/prop-types */
 import classes from "./index.module.css";
-
-const CartButton = () => {
-  const handleCartClick = () => {};
+const CartButton = ({ quantity, addToCart }) => {
+  const handleCartClick = () => {
+    console.log(quantity);
+    addToCart(quantity);
+  };
 
   return (
     <button onClick={handleCartClick} className={classes.cartButton}>

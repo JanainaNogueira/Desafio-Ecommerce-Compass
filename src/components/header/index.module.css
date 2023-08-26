@@ -87,3 +87,19 @@ header {
 .header__profileIcon{
     margin-left: 2rem;
 }
+
+.cartIconContainer{
+  text-align: center;
+  cursor: pointer;
+}
+.cartIconContainer p{
+ background-color: red;
+ color: white; 
+ width: 40%;
+ padding: 5px;
+ text-align: center;
+ border-radius: 50%;
+ font-size: 11px;
+ margin-left: 5px;
+ 
+}
