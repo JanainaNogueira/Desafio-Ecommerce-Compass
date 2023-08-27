@@ -6,7 +6,6 @@ const CartButton = () => {
 
   const handleCartClick = () => {
     setIsOnCart(!isOnCart);
-    console.log(isOnCart);
   };
 
   return (

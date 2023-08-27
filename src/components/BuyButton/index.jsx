@@ -7,7 +7,7 @@ const BuyButton = ({addToCart, quantity}) => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    console.log(quantity);
+ 
     addToCart(quantity);
     navigate("/cart")
   };
