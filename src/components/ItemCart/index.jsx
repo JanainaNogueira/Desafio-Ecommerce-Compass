@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import classes from "./index.module.css";
+import QuantityChanger from '../QuantityChanger/index';
 
 function ItemCart({ id, price, amount, title, handlerRemoveItem, imgUrl }) {
 
@@ -30,37 +31,7 @@ function ItemCart({ id, price, amount, title, handlerRemoveItem, imgUrl }) {
         })}
       </p>
 
-      <div className={classes.itemQuantity}>
-        <svg
-          width="12"
-          height="2"
-          viewBox="0 0 12 2"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            x="0.666626"
-            y="0.333374"
-            width="10.6667"
-            height="1"
-            rx="0.5"
-            fill="#666666"
-          />
-        </svg>
-        <p>{amount}</p>
-        <svg
-          width="12"
-          height="12"
-          viewBox="0 0 12 12"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M10.9166 5.58329H6.41663V1.08329C6.41663 0.853168 6.23008 0.666626 5.99996 0.666626C5.76983 0.666626 5.58329 0.853168 5.58329 1.08329V5.58329H1.08329C0.853168 5.58329 0.666626 5.76983 0.666626 5.99996C0.666626 6.23008 0.853168 6.41663 1.08329 6.41663H5.58329V10.9166C5.58329 11.1468 5.76983 11.3333 5.99996 11.3333C6.23008 11.3333 6.41663 11.1468 6.41663 10.9166V6.41663H10.9166C11.1468 6.41663 11.3333 6.23008 11.3333 5.99996C11.3333 5.76983 11.1468 5.58329 10.9166 5.58329Z"
-            fill="#333333"
-          />
-        </svg>
-      </div>
+      <QuantityChanger quantitya={amount}/>
 
       <div className={classes.divInfo}>
         <p>{title}</p>

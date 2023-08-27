@@ -1,0 +1,19 @@
+.quantityContainer {
+  display: flex;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  background: #fff;
+}
+
+.quantityButton {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+.quantityCounter {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-inline: 1px solid #eee;
+}
