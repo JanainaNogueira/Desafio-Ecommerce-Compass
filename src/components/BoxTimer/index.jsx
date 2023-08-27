@@ -1,78 +1,29 @@
-import {useState,useEffect} from 'react'
-import Styles from './index.module.css'
+import Styles from "./index.module.css";
+import useCount from "../../hooks/useCount";
 
-function BoxTimer(props){
-    const [time,setTime] = useState({
-        setDay:3,
-        setHour:2,
-        setMinute:5,
-        setSec:5,
-    });
-    const [reset,setReset]=useState(false)
-    function changeTime(){
-        setTime({...time,setSec:time.setSec-1})
-        setReset(true)
-        
-        console.log('aqui '+ reset)
-        console.log('=======')
-        console.log(time.setSec)
-        if(time.setSec == 0){
-            setTime({
-                ...time,
-                setMinute:time.setMinute-1,
-                setSec:5,
-            })
-            if(time.setMinute==0){
-                setTime({
-                    ...time,
-                    setMinute:5,
-                    setHour:time.setHour-1
-                })
-                if(time.setHour==0){
-                    setTime({
-                        ...time,
-                        setHour:2,
-                        setDay:time.setDay-1
-                    })
-                    if(time.setDay==0){
-                        setTime({
-                            setSec:5,
-                            setMinute:59,
-                            setHour:24,
-                            setDay:3,
-                            reset:true
-                        })
-                    }
-                }
-            }
-        }
-    }
-    if(isValid==true){
-        setInterval(changeTime,1000)
-    }
-    
-    
-    
-    return(
-        <div className={Styles.contador}>
-                    <div>
-                        <p>{time.setDay}</p>
-                        <p>Dias</p>
-                    </div>
-                    <div>
-                    <p>{time.setHour}</p>
-                    <p>Horas</p>
-                </div>
-            <div>
-                <p>{time.setMinute}</p>
-                <p>Minutos</p>
-            </div>
-            <div>
-                <p>{time.setSec}</p>
-                <p>Segundos</p>
-            </div>
-        </div>
-    )
+function BoxTimer() {
+  const [days, hours, minutes, seconds] = useCount("August 31, 2023 00:00:00");
+
+  return (
+    <div className={Styles.contador}>
+      <div>
+        <p>{days}</p>
+        <p>Dias</p>
+      </div>
+      <div>
+        <p>{hours}</p>
+        <p>Horas</p>
+      </div>
+      <div>
+        <p>{minutes}</p>
+        <p>Minutos</p>
+      </div>
+      <div>
+        <p>{seconds}</p>
+        <p>Segundos</p>
+      </div>
+    </div>
+  );
 }
 
-export default BoxTimer
+export default BoxTimer;
