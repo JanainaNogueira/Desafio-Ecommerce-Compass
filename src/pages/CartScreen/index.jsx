@@ -3,52 +3,34 @@ import Header from "../../components/header/";
 import Footer from "../../components/Footer/index";
 import OrderSummary from "../../components/OrderSummary/index";
 import ItemCart from "../../components/ItemCart/index";
+import { useContext } from "react";
+import { CartContext } from "../../context/cart-context";
 
 function CartScreen() {
-  const itens = [
-    { id: 1,
-      price: 5000,
-      title: "Celular Apple iPhone com dois sims e 64 GB, além de duas câmeras",
-      quantity: 1,
-      totalPrice: 5000,
-      imgUrl: '../../src/assets/img/iphone.png'
-    },
-    { id: 2,
-      price: 5000,
-      title: "Celular Apple iPhone com dois sims e 64 GB, além de duas câmeras",
-      quantity: 1,
-      totalPrice: 5000,
-      imgUrl: '../../src/assets/img/iphone.png'
-    },
-    { id: 2,
-      price: 5000,
-      title: "Celular Apple iPhone com dois sims e 64 GB, além de duas câmeras",
-      quantity: 3,
-      totalPrice: 5000,
-      imgUrl: '../../src/assets/img/iphone.png'
-    },
-    { id: 3,
-      price: 5000,
-      title: "Celular Apple iPhone com dois sims e 64 GB, além de duas câmeras",
-      quantity: 1,
-      totalPrice: 5000,
-      imgUrl: '../../src/assets/img/iphone.png'
-    },
-  ];
-
+  const { items, removeFromCart, totalPrice } = useContext(CartContext);
   
-
   return (
     <>
       <div className={classes.mainDiv}>
         <Header />
         <section className={classes.summarySection}>
-          <OrderSummary />
+          <OrderSummary totalPrice={totalPrice}/>
           <section className={classes.listItemSection}>
-            {itens.map((item) => (<ItemCart price={item.price} title={item.title} quantity={item.quantity} totalPrice={item.totalPrice} imgUrl={item.imgUrl}/>))}
+            {items.length > 0 && items.map((item) => (
+              <ItemCart
+                key={item.id}
+                id={item.id}
+                price={item.price}
+                title={item.title}
+                amount={item.amount}
+                imgUrl={item.image}
+                handlerRemoveItem={removeFromCart}
+              />
+              )
+            )}
           </section>
         </section>
-        <Footer className={classes.footer}/>
+        <Footer />
       </div>
     </>
   );

@@ -59,7 +59,6 @@
     justify-content: center;
     align-items: flex-end;
     gap: var(--spacing-lg, 0.5rem);
-    align-self: stretch;
 }
 
 .couponDiv div {

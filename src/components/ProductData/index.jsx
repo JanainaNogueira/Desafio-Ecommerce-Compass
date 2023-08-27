@@ -29,7 +29,8 @@ const ProductData = ({ product }) => {
       id: id,
       title: title,
       price: price,
-      amount: amount
+      amount: amount,
+      image: product.image
     };
 
     cartCtx.addToCart(cartItem);

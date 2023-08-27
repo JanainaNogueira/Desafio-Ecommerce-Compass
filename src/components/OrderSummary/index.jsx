@@ -1,13 +1,14 @@
+/* eslint-disable react/prop-types */
 import classes from './index.module.css'
 
-function OrderSummary () {
+function OrderSummary ({ totalPrice }) {
     return(
         <div className={classes.mainDiv}>
             <p className={classes.titleSummary}>
                 Resumo do pedido
             </p>
             <div className={classes.totalOrder}>
-                <p>{(6400).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
+                <p>{(totalPrice).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                 <p>Total</p>
             </div>
             <div className={classes.couponDiv}>
