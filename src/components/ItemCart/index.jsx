@@ -1,9 +1,27 @@
 /* eslint-disable react/prop-types */
 import classes from "./index.module.css";
 import QuantityChanger from '../QuantityChanger/index';
+import { useContext } from "react";
+import { CartContext } from "../../context/cart-context";
 
 function ItemCart({ id, price, amount, title, handlerRemoveItem, imgUrl }) {
+  const { addToCart, removeFromCart} = useContext(CartContext);
 
+  const addSubItem = (value) => {
+    console.log(value);
+    if (amount === 1 && value === -1) {
+      removeFromCart(id)
+    } else {
+      const cartItem = {
+        id: id,
+        title: title,
+        price: price,
+        amount: value,
+        image: imgUrl
+      };
+      addToCart(cartItem);
+    }
+  }
   return (
     <div className={classes.mainDiv} key={id}>
       <button
@@ -31,7 +49,7 @@ function ItemCart({ id, price, amount, title, handlerRemoveItem, imgUrl }) {
         })}
       </p>
 
-      <QuantityChanger quantitya={amount}/>
+      <QuantityChanger quantity={amount} addSubItem={addSubItem}/>
 
       <div className={classes.divInfo}>
         <p>{title}</p>
@@ -42,7 +60,7 @@ function ItemCart({ id, price, amount, title, handlerRemoveItem, imgUrl }) {
           })}
         </p>
       </div>
-      <img src={imgUrl} alt="iphone" className={classes.imgItem} />
+      <img src={imgUrl} alt={title} className={classes.imgItem} />
     </div>
   );
 }

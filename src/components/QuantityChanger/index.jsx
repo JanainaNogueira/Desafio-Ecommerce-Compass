@@ -2,19 +2,16 @@
 import { useEffect, useState } from "react";
 import classes from "./index.module.css";
 
-const QuantitySetter = ({ quantitya }) => {
-  const [quantity, setQuantity] = useState(quantitya);
+const QuantitySetter = ({ addSubItem, quantity }) => {
+  
 
   const handleQuantityIncrement = () => {
-    setQuantity(quantity + 1);
+    addSubItem(1)
   };
   const handleQuantityDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
+    addSubItem(-1);
   };
 
-  
 
   return (
     <div className={classes.quantityContainer}>

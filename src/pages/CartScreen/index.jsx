@@ -8,8 +8,6 @@ import { CartContext } from "../../context/cart-context";
 
 function CartScreen() {
   const { items, removeFromCart, totalPrice } = useContext(CartContext);
-  //removeFromCart(1);
-  console.log(items);
   
   return (
     <>
@@ -32,7 +30,7 @@ function CartScreen() {
             )}
           </section>
         </section>
-        <Footer className={classes.footer} />
+        <Footer />
       </div>
     </>
   );
