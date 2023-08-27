@@ -3,7 +3,6 @@ import AddCartButton from '../CartButton'
 import FavoriteButton from '../FavoriteButton'
 // eslint-disable-next-line react/prop-types
 const CardProduct = ({product})=>{
-    // eslint-disable-next-line react/prop-types
     const{title,price,image}=product||{};
     return(
         <article className={Styles.card}>
@@ -15,7 +14,7 @@ const CardProduct = ({product})=>{
                 </div>
                 <div className={Styles.buttons}>
                     <FavoriteButton/>
-                    <AddCartButton/>
+                    <AddCartButton product={product}/>
                 </div>
             </div>
         </article>

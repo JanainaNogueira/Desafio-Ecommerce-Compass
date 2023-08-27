@@ -1,12 +1,29 @@
 import classes from "./index.module.css";
 import { useState } from "react";
-
-const CartButton = () => {
+import { useContext } from "react";
+import { CartContext } from "../../context/cart-context";
+// eslint-disable-next-line react/prop-types
+const CartButton = ( {product} ) => {
   const [isOnCart, setIsOnCart] = useState(false);
-
+  const { addToCart, removeFromCart} = useContext(CartContext);
+  
+  const removeOrAddItem = (isAdd) => {
+    if (isAdd) {
+      const cartItem = {
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        amount: 1,
+        image: product.image
+      };
+      addToCart(cartItem);
+    } else {
+      removeFromCart(product.id)
+    }
+  }
   const handleCartClick = () => {
+    removeOrAddItem(!isOnCart)
     setIsOnCart(!isOnCart);
-    console.log(isOnCart);
   };
 
   return (
