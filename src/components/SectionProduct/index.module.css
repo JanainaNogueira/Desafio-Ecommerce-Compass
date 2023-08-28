@@ -9,6 +9,7 @@
     flex-wrap: wrap;
     width: 80%;
     height: 85%;
+    min-height: 85%;
     gap:2%;
     padding: 2% 2% 0 2%;
 }
@@ -33,11 +34,12 @@
 }
 .switchCards__left{
     width: 2.8%;
+    max-height: 80%;
     height: 80%;
     background: url(../../assets/img/arrow_left.svg) no-repeat;
     background-position: center;
     border-radius: 30px;
-    border: 1px solid #eeeeee;
+    border: 1px solid #c4c4c4;
     cursor: pointer;
 }
 .switchCards__right{
@@ -46,6 +48,6 @@
     width: 2.8%;
     height: 80%;
     border-radius: 30px;
-    border: 1px solid #eeeeee;
+    border: 1px solid #c4c4c4;
     cursor: pointer;
 }

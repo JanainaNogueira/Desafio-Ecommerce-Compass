@@ -11,16 +11,14 @@
 .arrowLefth{
     width: 3rem;
     height: 3rem;
-    background: url(../../assets/img/arrow_left.png) no-repeat;
-    background-position: center;
+    background-color: transparent;
     border: 1px solid #EEEEEE;
     border-radius: 25PX;
 }
 .arrowRight{
     width: 3rem;
     height: 3rem;
-    background: url(../../assets/img/arrow_right.png) no-repeat;
-    background-position: center;
+    background-color: transparent;
     border: 1px solid #EEEEEE;
     border-radius: 25PX; 
 }
