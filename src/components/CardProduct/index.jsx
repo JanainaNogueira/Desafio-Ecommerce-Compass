@@ -9,22 +9,22 @@ const CardProduct = ({product, statusFlag, newPricePromotion})=>{
     const navigate =useNavigate()
     const{id,title,price,image}=product||{};
     const[newStatusFlag,setNewStatusFlag]=useState(true)
-    const[newPrice, setNewPrice]=useState(false)
+    const[newPrice, setNewPrice]=useState(0)
     const switchStatusFlag =()=>{
     if(id%2==0){
         if(id%3==0){
             setNewStatusFlag(null)
-            setNewPrice(false)
+            setNewPrice(price)   
         }else{
             setNewStatusFlag(true)
-            setNewPrice(false)
+        setNewPrice(price)
         }
     }else {
         setNewStatusFlag(false)
-        setNewPrice(true)
+        setNewPrice(price-(price*0.25))
         if(id%3==0){
             setNewStatusFlag(null)
-            setNewPrice(false)   
+            setNewPrice(price)   
         }
     }
     }
@@ -45,7 +45,7 @@ const CardProduct = ({product, statusFlag, newPricePromotion})=>{
                     {newStatusFlag==true || newStatusFlag==null? <></>
                     :
                     <p className={Styles.oldPrice}>de {price?price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}): price}</p>}
-                    <p className={newStatusFlag==true || newStatusFlag==null?Styles.price:Styles.newPrice}>{newStatusFlag==true || newStatusFlag==null?<></>:'por'}{price?(price*0.75).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}):'R$'+price}</p>
+                    <p className={newStatusFlag==true || newStatusFlag==null?Styles.price:Styles.newPrice}>{newStatusFlag==true || newStatusFlag==null?<></>:'por'}{newPrice?newPrice.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}):'R$ '+newPrice}</p>
                     </div>
                 </div>
                 <div className={Styles.buttons}>

@@ -12,7 +12,7 @@ const CartButton = ( {product, newPricePromotion} ) => {
       const cartItem = {
         id: product.id,
         title: product.title,
-        price: newPricePromotion ? (product.price*0.75) : product.price,
+        price: newPricePromotion,
         amount: 1,
         image: product.image
       };

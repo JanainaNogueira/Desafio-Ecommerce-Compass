@@ -4,7 +4,7 @@ import FavoriteButton from '../FavoriteButton'
 import Star from '../Star'
 import BoxTimer from '../BoxTimer'
 import Flag from '../FlagDiscountNew'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 //import FlagDiscountNew from '../FlagDiscountNew'
 // eslint-disable-next-line react/prop-types
 const CardProduct = ({product,statusFlag, newPricePromotion})=>{
