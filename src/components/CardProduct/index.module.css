@@ -4,6 +4,7 @@
     height: 45%;
     border-radius: 0.4rem;
     border: 1px solid #cccccc;
+    cursor: pointer;
     flex-direction: column;
 }
 .cardDescription{
@@ -31,6 +32,22 @@
     display: -webkit-box;
     -webkit-line-clamp: 1; 
     -webkit-box-orient: vertical;
+}
+.prices{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    align-items: end;
+    gap: 2%;
+}
+.oldPrice{
+    color: #a5a5a5;
+    font-size: 0.8rem;
+    text-decoration:line-through;
+}
+.newPrice{
+    color: #F55157;
+    font-weight: 500;
 }
 .buttons{
     display: flex;
