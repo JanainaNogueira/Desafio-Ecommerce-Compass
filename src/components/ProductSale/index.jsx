@@ -4,10 +4,10 @@ import FavoriteButton from '../FavoriteButton'
 import Star from '../Star'
 import BoxTimer from '../BoxTimer'
 import Flag from '../FlagDiscountNew'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 //import FlagDiscountNew from '../FlagDiscountNew'
 // eslint-disable-next-line react/prop-types
-const CardProduct = ({product,statusFlag})=>{
+const CardProduct = ({product,statusFlag, newPricePromotion})=>{
     // eslint-disable-next-line react/prop-types
     const{title,price,image,description,rating}=product||{};
     const starsArray = [0, 1, 2, 3, 4];
@@ -32,7 +32,7 @@ const CardProduct = ({product,statusFlag})=>{
                 <BoxTimer/>
                 <div className={Styles.buttons}>
                     <FavoriteButton/>
-                    <ButtonSale product={product}/>
+                    <ButtonSale product={product} newPricePromotion={true}/>
                 </div>
             </div>
             <div className={Styles.imgCard}>

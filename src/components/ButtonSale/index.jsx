@@ -2,7 +2,7 @@ import classes from "./index.module.css";
 import { useState, useContext} from "react";
 import { CartContext } from "../../context/cart-context";
 
-const ButtonSale = ({product}) => {
+const ButtonSale = ({product, newPricePromotion}) => {
   const [isOnCart, setIsOnCart] = useState(false);
   const { addToCart, removeFromCart} = useContext(CartContext);
 
@@ -11,7 +11,7 @@ const ButtonSale = ({product}) => {
       const cartItem = {
         id: product.id,
         title: product.title,
-        price: product.price,
+        price: newPricePromotion,
         amount: 1,
         image: product.image
       };

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { CartContext } from "../../context/cart-context";
 // eslint-disable-next-line react/prop-types
-const CartButton = ( {product} ) => {
+const CartButton = ( {product, newPricePromotion} ) => {
   const [isOnCart, setIsOnCart] = useState(false);
   const { addToCart, removeFromCart} = useContext(CartContext);
   
@@ -12,7 +12,7 @@ const CartButton = ( {product} ) => {
       const cartItem = {
         id: product.id,
         title: product.title,
-        price: product.price,
+        price: newPricePromotion ? (product.price*0.75) : product.price,
         amount: 1,
         image: product.image
       };

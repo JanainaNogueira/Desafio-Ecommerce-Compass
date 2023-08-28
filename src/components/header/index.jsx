@@ -14,6 +14,9 @@ function Header() {
   const redirectToCart = ()=>{
     navigate('/cart')
   }
+  const redirectToHome=()=>{
+    navigate('/home')
+  }
   return (
     <header>
       <div className={Styles.header__cart}>
@@ -89,6 +92,7 @@ function Header() {
       </div>
       <div className={Styles.header__logo}>
         <svg
+          onClick={redirectToHome}
           xmlns="http://www.w3.org/2000/svg"
           width="44"
           height="45"
