@@ -10,7 +10,17 @@
   font-weight: 500;
   flex: 1 0 0;
 }
-
+.cartButton:hover{
+  border: 1px solid #62d0b6;
+  background: #62d0b6;
+  color: #ffffff;
+}
+.svg path{
+  fill: #000000;
+}
+.cartButton:hover .svg path{
+  fill: #ffffff;
+}
 .cartButtonActive {
     justify-content: center;
   display: flex;
@@ -22,5 +32,10 @@
   align-items: center;
   cursor: pointer;
   color: #ffff;
+  font-weight: 500;
   flex: 1 0 0;
+}
+
+.cartButtonActive .svg path{
+  fill:#ffffff
 }

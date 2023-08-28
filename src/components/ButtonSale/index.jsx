@@ -1,12 +1,11 @@
 import classes from "./index.module.css";
-import { useState } from "react";
-import { useContext } from "react";
+import { useState, useContext} from "react";
 import { CartContext } from "../../context/cart-context";
-// eslint-disable-next-line react/prop-types
-const CartButton = ( {product} ) => {
+
+const ButtonSale = ({product}) => {
   const [isOnCart, setIsOnCart] = useState(false);
   const { addToCart, removeFromCart} = useContext(CartContext);
-  
+
   const removeOrAddItem = (isAdd) => {
     if (isAdd) {
       const cartItem = {
@@ -53,6 +52,6 @@ const CartButton = ( {product} ) => {
   );
 };
 
-export default CartButton;
+export default ButtonSale;
 
 //fill={isOnCart ? 'white' : 'black'}

@@ -4,11 +4,8 @@
     display: flex;
     width: 4.1875rem;
     height: 1.875rem;
-    padding: 0.3125rem 0rem;
     justify-content: center;
     align-items: center;
-    gap: 0.625rem;
-    position: absolute;
     left: 1rem;
     top: 1rem;
     border-radius: 0.125rem;
@@ -50,5 +47,6 @@
 }
 
 .card {
-    border:#000;
+    margin: 1% 0 0 0.5%;
+    position: absolute;
 }

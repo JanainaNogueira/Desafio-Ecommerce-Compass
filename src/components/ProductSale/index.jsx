@@ -1,43 +1,45 @@
 import Styles from './index.module.css'
-import imgCard from '../../assets/img/Image.png'
-import AddCartButton from '../CartButton'
+import ButtonSale from '../ButtonSale'
 import FavoriteButton from '../FavoriteButton'
-const CardProduct = ()=>{
+import Star from '../Star'
+import BoxTimer from '../BoxTimer'
+import Flag from '../FlagDiscountNew'
+import { useState } from 'react'
+//import FlagDiscountNew from '../FlagDiscountNew'
+// eslint-disable-next-line react/prop-types
+const CardProduct = ({product,statusFlag})=>{
+    // eslint-disable-next-line react/prop-types
+    const{title,price,image,description,rating}=product||{};
+    const starsArray = [0, 1, 2, 3, 4];
+    const[newStatusFlag,setNewStatusFlag]=useState(false)
     return(
         <article className={Styles.card}>
             <div className={Styles.cardDescription}>
                 <div className={Styles.description}>
-                    <p className={Styles.titleProduct}>Novo relógio inteligente da série 8</p>
-                    <p className={Styles.descriptionProduct}>Black Sport Band- Regular.</p>
-                    <p>estrelas</p>
-                    <div className={Styles.promotionalPrice}>
-                        <p>por R$780,00</p>
+                    <p className={Styles.titleProduct}>{title}</p>
+                    <p className={Styles.descriptionProduct}>{description}</p>
+                    <div className={Styles.starsArray}>
+                        {starsArray.map((index) => (
+                            <Star key={index} isActive={rating?index <= rating.rate:{}}></Star>
+                        ))}
+                        <p className={Styles.rating}>({rating?rating.rate:'none'})</p>
                     </div>
-                    <div className={Styles.contador}>
-                        <div>
-                            <p>02</p>
-                            <p>Dias</p>
-                        </div>
-                        <div>
-                            <p>23</p>
-                            <p>Horas</p>
-                        </div>
-                        <div>
-                            <p>16</p>
-                            <p>Minutos</p>
-                        </div>
-                        <div>
-                            <p>02</p>
-                            <p>Segundos</p>
-                        </div>
+                    <div className={Styles.promotionalPrice}>
+                        <p>de {price?price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}): price}</p>
+                        <p>por {price?(price-(price*0.25)).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}):'R$'+price}</p>
                     </div>
                 </div>
+                <BoxTimer/>
                 <div className={Styles.buttons}>
                     <FavoriteButton/>
-                    <AddCartButton/>
+                    <ButtonSale product={product}/>
                 </div>
             </div>
-            <img className={Styles.imgCard} src={imgCard}/>
+            <div className={Styles.imgCard}>
+            <Flag statusFlag={newStatusFlag}/>
+                <img className={Styles.imgCard__img} src={image}/>
+            </div>
+            
         </article>
     )
 }

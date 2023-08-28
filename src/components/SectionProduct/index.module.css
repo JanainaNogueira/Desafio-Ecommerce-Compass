@@ -34,14 +34,14 @@
 .switchCards__left{
     width: 2.8%;
     height: 80%;
-    background: url(../../assets/img/arrow_left.png) no-repeat;
+    background: url(../../assets/img/arrow_left.svg) no-repeat;
     background-position: center;
     border-radius: 30px;
     border: 1px solid #eeeeee;
     cursor: pointer;
 }
 .switchCards__right{
-    background: url(../../assets/img/arrow_right.png) no-repeat;
+    background: url(../../assets/img/arrow_right.svg) no-repeat;
     background-position: center;
     width: 2.8%;
     height: 80%;

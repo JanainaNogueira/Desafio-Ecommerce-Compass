@@ -1,12 +1,20 @@
 import classes from './index.module.css'
-import { useState } from 'react';
-
-function FlagDiscountNew () {
+import { useEffect, useState} from 'react';
+function FlagDiscountNew (statusFlag) {
     const [isNew, setIsNew] = useState(true);
+    const verifica=()=>{
+        if(statusFlag.statusFlag ==isNew){
+            setIsNew(true)
+        }else{
+            setIsNew(false)
+        }
+    }
+    useEffect(()=>{
+        verifica()
+    },[])
+
     
     return (
-        
-
         <div className={classes.card}>
             <div className={`${classes.flagText} ${isNew ? classes.new : classes.discount}`}>
                 <p>
@@ -20,5 +28,4 @@ function FlagDiscountNew () {
         </div>
     );
 }
-
 export default FlagDiscountNew;
