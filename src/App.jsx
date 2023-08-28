@@ -7,7 +7,7 @@ import CartScreen from "./pages/CartScreen";
 import CartContextProvider from "./context/cart-context";
 
 const router = createBrowserRouter([
-  { path: "/home", element: <Home></Home> },
+  { index:true , element: <Home></Home> },
   { path: "/products/:productId", element: <BuyProduct></BuyProduct> },
   { path: "/cart", element: <CartScreen></CartScreen> },
 ]);

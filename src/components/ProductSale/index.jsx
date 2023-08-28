@@ -5,15 +5,20 @@ import Star from '../Star'
 import BoxTimer from '../BoxTimer'
 import Flag from '../FlagDiscountNew'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 //import FlagDiscountNew from '../FlagDiscountNew'
 // eslint-disable-next-line react/prop-types
 const CardProduct = ({product,statusFlag})=>{
+    const navigate = useNavigate()
     // eslint-disable-next-line react/prop-types
-    const{title,price,image,description,rating}=product||{};
+    const{id,title,price,image,description,rating}=product||{};
     const starsArray = [0, 1, 2, 3, 4];
     const[newStatusFlag,setNewStatusFlag]=useState(false)
+    const redirectToItem=()=>{
+        navigate('/products/'+id)
+    }
     return(
-        <article className={Styles.card}>
+        <article className={Styles.card}  onClick={redirectToItem} >
             <div className={Styles.cardDescription}>
                 <div className={Styles.description}>
                     <p className={Styles.titleProduct}>{title}</p>

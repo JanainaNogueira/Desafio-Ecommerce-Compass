@@ -20,9 +20,9 @@ const BuyProduct = () => {
   return (
     <>
       <Header />
-      <div className={classes.productContainer}>
-        {keys > 0 && <ProductData product={selectedProduct}></ProductData>}
-      </div>
+        <div className={classes.productContainer}>
+          {keys > 0 && <ProductData product={selectedProduct}></ProductData>}
+        </div>
       <Footer />
     </>
   );

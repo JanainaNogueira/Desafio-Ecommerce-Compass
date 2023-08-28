@@ -6,14 +6,9 @@ import { useNavigate } from "react-router-dom";
 const BuyButton = ({addToCart, quantity}) => {
   const navigate = useNavigate();
 
-  const handleButtonClick = () => {
- 
-    addToCart(quantity);
-    navigate("/cart")
-  };
 
   return (
-    <button onClick={handleButtonClick} className={classes.buyButton}>
+    <button className={classes.buyButton}>
       <p>Comprar</p>
     </button>
   );
