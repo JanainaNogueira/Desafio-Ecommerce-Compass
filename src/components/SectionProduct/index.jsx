@@ -37,10 +37,12 @@ function SectionProduct() {
   return (
     <section className={Styles.sectionProduct}>
       <div className={Styles.sectionProduct__title}>
-        <p>Ofertas terminando em breve</p>
+        <p>Produtos em destaques</p>
         <p>Produtos em destaque mais recentes adicionados</p>
       </div>
-      <div className={Styles.boxProduct}>{card}</div>
+      <div className={Styles.boxProduct}>
+        {card}
+      </div>
       <div className={Styles.switchCards}>
         <button
           className={Styles.switchCards__left}
