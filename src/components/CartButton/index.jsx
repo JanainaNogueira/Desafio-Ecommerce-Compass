@@ -29,7 +29,7 @@ const CartButton = ( {product} ) => {
   return (
     <button
       onClick={handleCartClick}
-      className={isOnCart ? classes.cartButtonActive : classes.cartButton}
+      className={classes.cartButton}
     >
       <p>Carrinho</p>
       <svg

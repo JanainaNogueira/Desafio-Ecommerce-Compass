@@ -35,9 +35,9 @@ const CardProduct = ({product, statusFlag})=>{
         switchStatusFlag()
     },[])
     return(
-        <article className={Styles.card} onClick={redirectToItem}>
+        <article className={Styles.card} >
             {newStatusFlag!=null?<Flag statusFlag={newStatusFlag}/>:<></>}
-            <img className={Styles.imgCard} src={image}/>
+            <img className={Styles.imgCard} onClick={redirectToItem} src={image}/>
             <div className={Styles.cardDescription}>
                 <div className={Styles.description}>
                     <p>{title}</p>

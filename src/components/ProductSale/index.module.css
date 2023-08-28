@@ -73,6 +73,7 @@
 }
 .imgCard{
   width: 50%;
+  cursor: pointer;
 }
 .imgCard__img{
   width: 100%;

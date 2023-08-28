@@ -4,16 +4,19 @@ import { CartContext } from "../../context/cart-context";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const cartCtx = useContext(CartContext);
 
   const currentAmount = cartCtx.items.reduce((acc, item) => {
     return acc + item.amount;
   }, 0);
 
-  const redirectToCart = ()=>{
-    navigate('/cart')
-  }
+  const redirectToCart = () => {
+    navigate("/cart");
+  };
+  const redirectToHome = () => {
+    navigate("/");
+  };
   return (
     <header>
       <div className={Styles.header__cart}>
@@ -89,6 +92,7 @@ function Header() {
       </div>
       <div className={Styles.header__logo}>
         <svg
+          onClick={redirectToHome}
           xmlns="http://www.w3.org/2000/svg"
           width="44"
           height="45"
