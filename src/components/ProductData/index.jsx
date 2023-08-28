@@ -63,9 +63,7 @@ const ProductData = ({ product }) => {
               addToCart={addToCartHandler}
               quantity={productQuantity}
             ></CartButton>
-            <BuyButton
-            addToCart={addToCartHandler}
-            quantity={productQuantity}></BuyButton>
+            <BuyButton></BuyButton>
           </div>
         </div>
       </div>
